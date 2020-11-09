@@ -1,4 +1,4 @@
-package com.example.soundplayerexample;
+package com.example.mobilefantasyadventure;
 
 import org.junit.Test;
 
