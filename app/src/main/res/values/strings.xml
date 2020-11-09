@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MobileFantasyAdventure</string>
+    <string name="ClickToListen">화면을 터치해서 명언을 들어보세요!</string>
 </resources>
