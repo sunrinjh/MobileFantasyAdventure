@@ -32,4 +32,7 @@ public class SoundPlayer {
             }
         });
     }
+    public static void releaseSound(Context context){
+        soundPool.release();
+    }
 }

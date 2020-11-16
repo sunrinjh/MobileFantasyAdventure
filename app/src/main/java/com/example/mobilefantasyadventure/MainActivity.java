@@ -6,8 +6,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.lang.ref.PhantomReference;
@@ -17,17 +19,18 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     int randomBound;
     TextView textView;
-    TextView leftCheckBoxTextView;
-
+    Switch engSwitch;
     RadioGroup radioGroup;
+    boolean isEng = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
         setPhrase();
         randomBound = Phrase.getStringArrayList().size();
+        setEnglishPhrase();
         SoundPlayer.initSound(context);
 
         findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
@@ -40,24 +43,47 @@ public class MainActivity extends AppCompatActivity {
 
         radioGroup = findViewById(R.id.RadioGroup);
         radioGroup.check(R.id.leftRadioButton);
+        engSwitch = findViewById(R.id.engSwitch);
+        engSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    //
+                    isEng = false;
+                }
+                else {
+                    //
+                    isEng = true;
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SoundPlayer.releaseSound(context);
     }
 
     public void refillPhrase(){
-        int radioButtonId = radioGroup.getCheckedRadioButtonId();
-        Random random = new Random();
-        int randInt = random.nextInt(randomBound);
-        switch (radioButtonId){
-            case R.id.leftRadioButton:
-                SoundPlayer.playSound(context,Phrase.getIntegerArrayList_Changu().get(randInt));
-                break;
-            case R.id.middleRadioButton:
-                SoundPlayer.playSound(context, Phrase.getIntegerArrayList_Chun().get(randInt));
-                break;
-            case R.id.rightRadioButton:
-                SoundPlayer.playSound(context, Phrase.getIntegerArrayList_Moon().get(randInt));
-                break;
+        if (!isEng) {
+            int radioButtonId = radioGroup.getCheckedRadioButtonId();
+            Random random = new Random();
+            int randInt = random.nextInt(randomBound);
+            switch (radioButtonId) {
+                case R.id.leftRadioButton:
+                    SoundPlayer.playSound(context, Phrase.getIntegerArrayList_Changu().get(randInt));
+                    break;
+                case R.id.middleRadioButton:
+                    SoundPlayer.playSound(context, Phrase.getIntegerArrayList_Chun().get(randInt));
+                    break;
+                case R.id.rightRadioButton:
+                    SoundPlayer.playSound(context, Phrase.getIntegerArrayList_Moon().get(randInt));
+                    break;
+            }
+            textView.setText(Phrase.getStringArrayList().get(randInt));
         }
-        textView.setText(Phrase.getStringArrayList().get(randInt));
+
     }
     private void setPhrase(){
         Phrase.addPhrase("모든 단점은 장점이 될 수 있다.", R.raw.changu_01, R.raw.chun_01, R.raw.moon_01);
@@ -121,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
         Phrase.addPhrase("남자는 엎드려 살지않아, 선채로 죽는거다.", R.raw.changu_59, R.raw.chun_61, R.raw.moon_59);
         Phrase.addPhrase("죄송하지만 용기는 따로 팔지 않습니다, 용기는 우리 모두의 마음 속에 있는거니까요.",  R.raw.changu_60, R.raw.chun_62, R.raw.moon_60);
     }
+
     private void setEnglishPhrase(){
 
     }

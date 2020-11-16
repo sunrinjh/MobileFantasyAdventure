@@ -44,28 +44,28 @@
             android:id="@+id/leftRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="찬구" />
+            android:text="@string/changu" />
 
         <RadioButton
             android:id="@+id/middleRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="리춘희" />
+            android:text="@string/chunhe" />
 
         <RadioButton
             android:id="@+id/rightRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🌝" />
+            android:text="@string/president" />
     </RadioGroup>
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/engSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Switch"
+        android:text="@string/engSwitch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

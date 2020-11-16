@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MobileFantasyAdventure</string>
     <string name="ClickToListen">화면을 터치해서 명언을 들어보세요!</string>
+    <string name="engSwitch">영어명언 모드</string>
+    <string name="changu">찬구</string>
+    <string name="chunhe">리춘희</string>\
+    <string name="president">🌝</string>
 </resources>
