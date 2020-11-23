@@ -18,6 +18,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     Context context;
     int randomBound;
+    int engRandomBound;
     TextView textView;
     Switch engSwitch;
     RadioGroup radioGroup;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setPhrase();
         randomBound = Phrase.getStringArrayList().size();
         setEnglishPhrase();
+        engRandomBound = EnglishPhrase.getStringArrayList().size();
         SoundPlayer.initSound(context);
+
 
         findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,10 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 if(!isChecked){
                     //
                     isEng = false;
+                    ((RadioButton)radioGroup.getChildAt(0)).setText("찬구");
+                    ((RadioButton)radioGroup.getChildAt(1)).setText("리춘희");
+                    ((RadioButton)radioGroup.getChildAt(2)).setText("\uD83C\uDF1D");
+
                 }
                 else {
                     //
                     isEng = true;
+                    ((RadioButton)radioGroup.getChildAt(0)).setText("Kamila");
+                    ((RadioButton)radioGroup.getChildAt(1)).setText("Juila");
+                    ((RadioButton)radioGroup.getChildAt(2)).setText("Trump");
                 }
             }
         });
@@ -66,9 +76,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refillPhrase(){
+        int radioButtonId = radioGroup.getCheckedRadioButtonId();
+        Random random = new Random();
         if (!isEng) {
-            int radioButtonId = radioGroup.getCheckedRadioButtonId();
-            Random random = new Random();
+
             int randInt = random.nextInt(randomBound);
             switch (radioButtonId) {
                 case R.id.leftRadioButton:
@@ -82,6 +93,21 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             textView.setText(Phrase.getStringArrayList().get(randInt));
+        }
+        else{
+            int randInt = random.nextInt(engRandomBound);
+            switch (radioButtonId){
+                case R.id.leftRadioButton:
+                    SoundPlayer.playSound(context, EnglishPhrase.getIntegerArrayList_Kamila().get(randInt));
+                    break;
+                case R.id.middleRadioButton:
+                    SoundPlayer.playSound(context, EnglishPhrase.getIntegerArrayList_Julia().get(randInt));
+                    break;
+                case R.id.rightRadioButton:
+                    SoundPlayer.playSound(context, EnglishPhrase.getIntegerArrayList_Trump().get(randInt));
+                    break;
+            }
+            textView.setText(EnglishPhrase.getStringArrayList().get(randInt));
         }
 
     }
@@ -143,13 +169,26 @@ public class MainActivity extends AppCompatActivity {
         Phrase.addPhrase("승부를 결정 짓는건 집념과 약간의 운이다.",  R.raw.changu_55, R.raw.chun_55, R.raw.moon_55);
         Phrase.addPhrase("불가능은 불꽃 가능의 줄임말일 뿐이다.",  R.raw.changu_56, R.raw.chun_56, R.raw.moon_56);
         Phrase.addPhrase("통제할 수 없는 힘은 손잡이가 날도 된 칼일 뿐이야.", R.raw.changu_57, R.raw.chun_57, R.raw.moon_57);
-        Phrase.addPhrase("남자의 피에는 로망이 흐르고 남자의 땀에는 낭만이 흐르고 남자의 눈물에는 마음이 흐른다....", R.raw.changu_58, R.raw.chun_60, R.raw.moon_58);
-        Phrase.addPhrase("남자는 엎드려 살지않아, 선채로 죽는거다.", R.raw.changu_59, R.raw.chun_61, R.raw.moon_59);
-        Phrase.addPhrase("죄송하지만 용기는 따로 팔지 않습니다, 용기는 우리 모두의 마음 속에 있는거니까요.",  R.raw.changu_60, R.raw.chun_62, R.raw.moon_60);
+        Phrase.addPhrase("남자의 피에는 로망이 흐르고 남자의 땀에는 낭만이 흐르고 남자의 눈물에는 마음이 흐른다....", R.raw.changu_58, R.raw.chun_58, R.raw.moon_58);
+        Phrase.addPhrase("남자는 엎드려 살지않아, 선채로 죽는거다.", R.raw.changu_59, R.raw.chun_59, R.raw.moon_59);
+        Phrase.addPhrase("죄송하지만 용기는 따로 팔지 않습니다, 용기는 우리 모두의 마음 속에 있는거니까요.",  R.raw.changu_60, R.raw.chun_60, R.raw.moon_60);
     }
 
     private void setEnglishPhrase(){
-
+        EnglishPhrase.addPhrase("Think like a man of action and act like man of thought", R.raw.kamila_01, R.raw.julia_01, R.raw.trump_01);
+        EnglishPhrase.addPhrase("The best things in life are free", R.raw.kamila_02, R.raw.julia_02,R.raw.trump_02);
+        EnglishPhrase.addPhrase("We are in the endgame now", R.raw.kamila_03, R.raw.julia_03,R.raw.trump_03);
+        EnglishPhrase.addPhrase("We are Venom", R.raw.kamila_04, R.raw.julia_04,R.raw.trump_04);
+        EnglishPhrase.addPhrase("Avengers...Assemble", R.raw.kamila_05, R.raw.julia_05,R.raw.trump_05);
+        EnglishPhrase.addPhrase("I am Ironman", R.raw.kamila_06, R.raw.julia_06,R.raw.trump_06);
+        EnglishPhrase.addPhrase("Dormammu, I've come to bargain", R.raw.kamila_07, R.raw.julia_07,R.raw.trump_07);
+        EnglishPhrase.addPhrase("I can do this all day", R.raw.kamila_08, R.raw.julia_08,R.raw.trump_08);
+        EnglishPhrase.addPhrase("We are Guardians of the Galaxy", R.raw.kamila_09, R.raw.julia_09,R.raw.trump_09);
+        EnglishPhrase.addPhrase("Hail Hydra", R.raw.kamila_10, R.raw.julia_10,R.raw.trump_10);
+        EnglishPhrase.addPhrase("Mother...f", R.raw.kamila_11, R.raw.julia_11,R.raw.trump_11);
+        EnglishPhrase.addPhrase("Puny god", R.raw.kamila_12, R.raw.julia_12,R.raw.trump_12);
+        EnglishPhrase.addPhrase("We are Groot", R.raw.kamila_13, R.raw.julia_13,R.raw.trump_13);
+        EnglishPhrase.addPhrase("I love you three thousand", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
     }
 
 }
