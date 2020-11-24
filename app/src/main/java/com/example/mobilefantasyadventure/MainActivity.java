@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     Switch engSwitch;
     RadioGroup radioGroup;
+    ImageView imageView;
     boolean isEng = false;
     int easterEggCounter = 0;
     int easterEggIndex[] = {1,2,1,0,1,2};
@@ -38,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         engRandomBound = EnglishPhrase.getStringArrayList().size();
         SoundPlayer.initSound(context);
 
-
         findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         textView = findViewById(R.id.text);
-
+        imageView = findViewById(R.id.imageView);
         radioGroup = findViewById(R.id.RadioGroup);
         radioGroup.check(R.id.leftRadioButton);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -58,6 +60,35 @@ public class MainActivity extends AppCompatActivity {
                 if(easterEggCounter > 6){
                     zzfzzMode=true;
                 }
+                System.out.println(checkedId);
+                if(!isEng){
+                    switch (checkedId){
+                        case R.id.leftRadioButton: //찬구
+                            imageView.setImageResource(R.drawable.changuillust);
+                            break;
+                        case R.id.middleRadioButton: //리춘희
+                            imageView.setImageResource(R.drawable.chunheillust);
+                            break;
+                        case R.id.rightRadioButton: // 영길
+                            imageView.setImageResource(R.drawable.yeonggilillust);
+                            break;
+
+                    }
+                }
+                else {
+                    switch (checkedId){
+                        case R.id.leftRadioButton: //Kamila
+                            imageView.setImageResource(R.drawable.kamilaillust);
+                            break;
+                        case R.id.middleRadioButton: //Juila
+                            imageView.setImageResource(R.drawable.juliaillust);
+                            break;
+                        case R.id.rightRadioButton: // Trump
+                            imageView.setImageResource(R.drawable.yeonggilillust);
+                            break;
+                    }
+                }
+
             }
         });
         engSwitch = findViewById(R.id.engSwitch);
