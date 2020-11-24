@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     Switch engSwitch;
     RadioGroup radioGroup;
     boolean isEng = false;
+    int easterEggCounter = 0;
+    int easterEggIndex[] = {1,2,1,0,1,2};
+    boolean zzfzzMode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -46,6 +49,17 @@ public class MainActivity extends AppCompatActivity {
 
         radioGroup = findViewById(R.id.RadioGroup);
         radioGroup.check(R.id.leftRadioButton);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(easterEggIndex[easterEggCounter] == checkedId){
+                    easterEggCounter++;
+                }
+                if(easterEggCounter > 6){
+                    zzfzzMode=true;
+                }
+            }
+        });
         engSwitch = findViewById(R.id.engSwitch);
         engSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -55,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     isEng = false;
                     ((RadioButton)radioGroup.getChildAt(0)).setText("찬구");
                     ((RadioButton)radioGroup.getChildAt(1)).setText("리춘희");
-                    ((RadioButton)radioGroup.getChildAt(2)).setText("\uD83C\uDF1D");
+                    ((RadioButton)radioGroup.getChildAt(2)).setText("영길");
 
                 }
                 else {
@@ -76,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refillPhrase(){
+
         int radioButtonId = radioGroup.getCheckedRadioButtonId();
         Random random = new Random();
         if (!isEng) {
