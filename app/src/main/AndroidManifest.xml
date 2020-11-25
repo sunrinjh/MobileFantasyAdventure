@@ -9,15 +9,28 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:theme="@android:style/Theme.Material.NoActionBar"></activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+        <receiver android:name=".PlayAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/play_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

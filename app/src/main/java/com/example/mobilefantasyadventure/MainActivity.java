@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                             imageView.setImageResource(R.drawable.changuillust);
                             break;
                         case R.id.middleRadioButton: //리춘희
-                            imageView.setImageResource(R.drawable.chunheillust);
+                            imageView.setImageResource(R.drawable.chunillust);
                             break;
                         case R.id.rightRadioButton: // 영길
                             imageView.setImageResource(R.drawable.yeonggilillust);
@@ -101,7 +101,17 @@ public class MainActivity extends AppCompatActivity {
                     ((RadioButton)radioGroup.getChildAt(0)).setText("찬구");
                     ((RadioButton)radioGroup.getChildAt(1)).setText("리춘희");
                     ((RadioButton)radioGroup.getChildAt(2)).setText("영길");
-
+                    switch (radioGroup.getCheckedRadioButtonId()){
+                        case R.id.leftRadioButton: //찬구
+                            imageView.setImageResource(R.drawable.changuillust);
+                            break;
+                        case R.id.middleRadioButton: //리춘희
+                            imageView.setImageResource(R.drawable.chunillust);
+                            break;
+                        case R.id.rightRadioButton: // 영길
+                            imageView.setImageResource(R.drawable.yeonggilillust);
+                            break;
+                    }
                 }
                 else {
                     //
@@ -109,6 +119,17 @@ public class MainActivity extends AppCompatActivity {
                     ((RadioButton)radioGroup.getChildAt(0)).setText("Kamila");
                     ((RadioButton)radioGroup.getChildAt(1)).setText("Juila");
                     ((RadioButton)radioGroup.getChildAt(2)).setText("Trump");
+                    switch (radioGroup.getCheckedRadioButtonId()){
+                        case R.id.leftRadioButton: //Kamila
+                            imageView.setImageResource(R.drawable.kamilaillust);
+                            break;
+                        case R.id.middleRadioButton: //Juila
+                            imageView.setImageResource(R.drawable.juliaillust);
+                            break;
+                        case R.id.rightRadioButton: // Trump
+                            imageView.setImageResource(R.drawable.yeonggilillust);
+                            break;
+                    }
                 }
             }
         });
