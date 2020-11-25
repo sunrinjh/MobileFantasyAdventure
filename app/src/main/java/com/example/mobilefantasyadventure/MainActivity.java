@@ -255,7 +255,16 @@ public class MainActivity extends AppCompatActivity {
         EnglishPhrase.addPhrase("Mother...f", R.raw.kamila_11, R.raw.julia_11,R.raw.trump_11);
         EnglishPhrase.addPhrase("Puny god", R.raw.kamila_12, R.raw.julia_12,R.raw.trump_12);
         EnglishPhrase.addPhrase("We are Groot", R.raw.kamila_13, R.raw.julia_13,R.raw.trump_13);
-        EnglishPhrase.addPhrase("I love you three thousand", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("The road to success and the road to failure are almost exactly the same.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("It is better to fail in originality than to succeed in imitation.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("Success is walking from failure to failure with no loss of enthusiasm.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("All progress takes place outside the comfort zone.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("Success usually comes to those who are too busy to be looking for it.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("The way to get started is to quit talking and begin doing.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("Success seems to be connected with action. Successful people keep moving.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("In order to succeed, we must first believe that we can.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
+        EnglishPhrase.addPhrase("The only place where success comes before work is in the dictionary.", R.raw.kamila_14, R.raw.julia_14,R.raw.trump_14);
     }
 
 }
