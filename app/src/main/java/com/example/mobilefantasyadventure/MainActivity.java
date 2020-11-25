@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     int easterEggCounter = 0;
     int easterEggIndex[] = {1,2,1,0,1,2};
     boolean zzfzzMode = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -210,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         Phrase.addPhrase("호랑이는 죽어서 가죽을 남기고 사람은 죽어서 이름을 남긴다.", R.raw.changu_29, R.raw.chun_29, R.raw.moon_29);
         Phrase.addPhrase("자연이 그대를 거부하리라.",  R.raw.changu_30, R.raw.chun_30, R.raw.moon_30);
         Phrase.addPhrase("빛이 당신을 태울 것입니다.",  R.raw.changu_31, R.raw.chun_31, R.raw.moon_31);
-        Phrase.addPhrase("지배계급으로 하여금 공산주의 혁명 앞에서 벌벌 떨게 하라!프롤레타리아가 혁명에서 잃을 것이라고는 쇠사슬 뿐이요, 얻을 것은 전세계다.만국의 노동자여, 단결하라!", R.raw.changu_32 , R.raw.chun_32, R.raw.moon_32);
+        Phrase.addPhrase("지배계급으로 하여금 공산주의 혁명 앞에서 벌벌 떨게 하라! 프롤레타리아가 혁명에서 잃을 것이라고는 쇠사슬 뿐이요, 얻을 것은 전세계다. 만국의 노동자여, 단결하라!", R.raw.changu_32 , R.raw.chun_32, R.raw.moon_32);
         Phrase.addPhrase("내려갈 팀은 내려간다.",  R.raw.changu_33, R.raw.chun_33, R.raw.moon_33);
         Phrase.addPhrase("내가 천하를 등질지언정 천하가 나를 등지게는 하지 않겠소.",  R.raw.changu_34, R.raw.chun_34, R.raw.moon_34);
         Phrase.addPhrase("필사즉생, 필생즉사.", R.raw.changu_35 , R.raw.chun_35, R.raw.moon_35);
@@ -239,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
         Phrase.addPhrase("남자의 피에는 로망이 흐르고 남자의 땀에는 낭만이 흐르고 남자의 눈물에는 마음이 흐른다....", R.raw.changu_58, R.raw.chun_58, R.raw.moon_58);
         Phrase.addPhrase("남자는 엎드려 살지않아, 선채로 죽는거다.", R.raw.changu_59, R.raw.chun_59, R.raw.moon_59);
         Phrase.addPhrase("죄송하지만 용기는 따로 팔지 않습니다, 용기는 우리 모두의 마음 속에 있는거니까요.",  R.raw.changu_60, R.raw.chun_60, R.raw.moon_60);
+        Phrase.makeJson();
     }
 
     private void setEnglishPhrase(){
