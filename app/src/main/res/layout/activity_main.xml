@@ -82,4 +82,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/zzrzzbutton"
+        android:layout_width="64dp"
+        android:layout_height="42dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

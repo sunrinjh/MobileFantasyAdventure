@@ -4,7 +4,7 @@
     android:initialLayout="@layout/play_app_widget"
     android:minHeight="100dp"
     android:minWidth="200dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewImage="@drawable/playwidget_preview"
     android:resizeMode="none"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen"></appwidget-provider>
